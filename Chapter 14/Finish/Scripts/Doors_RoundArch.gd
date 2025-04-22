@@ -1,12 +1,12 @@
-extends Spatial
+extends Node3D
 
-export(NodePath) onready var backpack = get_node(backpack) as Node
+@export var backpack : Node
 
-onready var key_collected:bool = false
+@onready var key_collected:bool = false
 var is_open:bool = false
 
 func _ready():
-	backpack.connect("key_collected", self, "on_key_collected")
+	backpack.connect("key_collected", on_key_collected)
 
 func on_key_collected():
 	key_collected = true

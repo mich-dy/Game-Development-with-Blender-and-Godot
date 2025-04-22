@@ -1,8 +1,8 @@
-extends KinematicBody
+extends CharacterBody3D
 
-onready var camera:Camera = get_viewport().get_camera()
-onready var space_state:PhysicsDirectSpaceState = get_world().direct_space_state
-export(NodePath) onready var nav = get_node(nav) as Navigation
+@onready var camera:Camera3D = get_viewport().get_camera_3d()
+@onready var space_state:PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+@export(NodePath) onready var nav = get_node(nav) as Navigation
 const DISTANCE_THRESHOLD:= 1
 const SPEED:= 5
 
@@ -35,4 +35,5 @@ func move_along(path:Array):
 	if distance_to_next_step < DISTANCE_THRESHOLD:
 		path_index += 1
 	else:
-		move_and_slide(direction.normalized() * SPEED)
+		set_velocity(direction.normalized() * SPEED)
+		move_and_slide()

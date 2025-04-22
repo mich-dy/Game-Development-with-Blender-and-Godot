@@ -1,10 +1,10 @@
-[gd_resource type="Shader" format=2]
+[gd_resource type="Shader" format=3 uid="uid://cb1vfwaqs5oy8"]
 
 [resource]
 code = "shader_type spatial;
 
 uniform sampler2D wave_pattern;
-uniform vec4 color:hint_color = vec4(0.19, 0.71, 0.82, 0.44);
+uniform vec4 color:source_color = vec4(0.19, 0.71, 0.82, 0.44);
 uniform float height_factor:hint_range(0,1.0) = 0.1;
 
 void vertex(){
