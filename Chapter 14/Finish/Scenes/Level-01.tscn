@@ -36,9 +36,9 @@
 [ext_resource type="PackedScene" uid="uid://2hqub7rut4un" path="res://Models/Pots/Pot3_Broken.glb" id="33"]
 [ext_resource type="Environment" path="res://default_env.tres" id="36"]
 [ext_resource type="PackedScene" uid="uid://wjp0syq71y5l" path="res://Models/Bush/bush_round.tscn" id="36_a7jyn"]
-[ext_resource type="PackedScene" path="res://Scenes/UI.tscn" id="37"]
+[ext_resource type="PackedScene" uid="uid://byly55jeojwm7" path="res://Scenes/UI.tscn" id="37"]
 [ext_resource type="PackedScene" uid="uid://ch74xe5up2pgv" path="res://Scenes/Player.tscn" id="38"]
-[ext_resource type="PackedScene" path="res://Models/Scrolls/Parchment.tscn" id="39"]
+[ext_resource type="PackedScene" uid="uid://c0dodaoiubotl" path="res://Models/Scrolls/Parchment.tscn" id="39"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0uk8v"]
 render_priority = 0
@@ -530,3 +530,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1.5, 8.9)
 
 [node name="BoatWSail2" parent="NavigationRegion3D/Dock" instance=ExtResource("30")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, -1, 11)
+
+[connection signal="input_event" from="StaticBody3D" to="Parchment" method="_on_static_body_3d_input_event"]

@@ -1,18 +1,21 @@
 extends Node3D
 
-@export(NodePath) onready var backpack = get_node(backpack) as Node
+@export var backpack : Node
 
 @onready var key_collected:bool = false
+var is_open:bool = false
 
-func _ready():
-	backpack.connect("key_collected", Callable(self, "on_key_collected"))
+func _ready() -> void:
+	backpack.connect("key_collected", _on_key_collected)
 
-func on_key_collected():
+func _on_key_collected() -> void:
 	key_collected = true
 
-func _on_Area_body_entered(body):
-	if body.name == "Player":
+func _on_Area_body_entered(body: Node3D) -> void:
+	if body.name == "Player" and is_open == false:
 		if key_collected:
 			$OpenDoor.play()
+			$AnimationPlayer.play("Open")
+			is_open = true
 		else:
 			$LockFiddling.play()

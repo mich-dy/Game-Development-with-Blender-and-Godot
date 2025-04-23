@@ -1,8 +1,8 @@
 extends Button
 
-func _ready():
-	connect("pressed", Callable(self, "on_pressed"))
+func _ready() -> void:
+	connect("pressed", _on_pressed)
 	
-func on_pressed():
+func _on_pressed() -> void:
 	get_parent().visible = false
 	get_node("../AudioStreamPlayer").play()

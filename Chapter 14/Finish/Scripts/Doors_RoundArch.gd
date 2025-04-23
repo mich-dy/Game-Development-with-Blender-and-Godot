@@ -5,13 +5,13 @@ extends Node3D
 @onready var key_collected:bool = false
 var is_open:bool = false
 
-func _ready():
-	backpack.connect("key_collected", on_key_collected)
+func _ready() -> void:
+	backpack.connect("key_collected", _on_key_collected)
 
-func on_key_collected():
+func _on_key_collected() -> void:
 	key_collected = true
 
-func _on_Area_body_entered(body):
+func _on_Area_body_entered(body: Node3D) -> void:
 	if body.name == "Player" and is_open == false:
 		if key_collected:
 			$OpenDoor.play()
@@ -20,5 +20,5 @@ func _on_Area_body_entered(body):
 		else:
 			$LockFiddling.play()
 		
-func load_level():
+func load_level() -> void:
 	EventBus.emit_signal("change_level", "Level-02.tscn")

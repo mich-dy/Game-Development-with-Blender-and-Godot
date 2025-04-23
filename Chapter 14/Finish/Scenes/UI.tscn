@@ -1,63 +1,73 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=18 format=3 uid="uid://byly55jeojwm7"]
 
-[ext_resource path="res://UI/button_normal.png" type="Texture2D" id=1]
-[ext_resource path="res://UI/button_hover.png" type="Texture2D" id=2]
-[ext_resource path="res://UI/button_disabled.png" type="Texture2D" id=3]
-[ext_resource path="res://UI/button_pressed.png" type="Texture2D" id=4]
-[ext_resource path="res://UI/notification.png" type="Texture2D" id=5]
-[ext_resource path="res://Fonts/Kefario.otf" type="FontFile" id=6]
-[ext_resource path="res://Scripts/ButtonClose.gd" type="Script" id=7]
-[ext_resource path="res://UI/Themes/Dark.tres" type="Theme" id=8]
-[ext_resource path="res://Scenes/UI.gd" type="Script" id=9]
-[ext_resource path="res://Audio/ButtonPress.wav" type="AudioStream" id=10]
+[ext_resource type="Texture2D" uid="uid://cc2re047p8wsl" path="res://UI/button_normal.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://csfl8fr22qkuc" path="res://UI/button_hover.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://b4mn321n83y4t" path="res://UI/button_disabled.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://c0qobgr824fom" path="res://UI/button_pressed.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://fgoubsanls6q" path="res://UI/notification.png" id="5"]
+[ext_resource type="FontFile" uid="uid://cusl13eoym34c" path="res://Fonts/Kefario.otf" id="6"]
+[ext_resource type="Script" uid="uid://b7vpa2x04bt5t" path="res://Scripts/ButtonClose.gd" id="7"]
+[ext_resource type="Theme" uid="uid://ba2pyap7ow8va" path="res://UI/Themes/Dark.tres" id="8"]
+[ext_resource type="Script" uid="uid://di1hmmero0d6x" path="res://Scenes/UI.gd" id="9"]
+[ext_resource type="AudioStream" uid="uid://dgurt5myk4kuf" path="res://Audio/ButtonPress.wav" id="10"]
 
-[sub_resource type="StyleBoxTexture" id=5]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 600, 400 )
+[sub_resource type="StyleBoxTexture" id="5"]
+texture = ExtResource("5")
+region_rect = Rect2(0, 0, 600, 400)
 
-[sub_resource type="FontFile" id=6]
-size = 28
-font_data = ExtResource( 6 )
+[sub_resource type="FontFile" id="6"]
+fallbacks = Array[Font]([ExtResource("6"), ExtResource("6")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/48/0/ascent = 0.0
+cache/0/48/0/descent = 0.0
+cache/0/48/0/underline_position = 0.0
+cache/0/48/0/underline_thickness = 0.0
+cache/0/48/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
 
-[sub_resource type="StyleBoxTexture" id=2]
-texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 91, 33 )
-offset_left = 8.0
-offset_right = 8.0
-offset_top = 8.0
-offset_bottom = 8.0
+[sub_resource type="LabelSettings" id="LabelSettings_j04uc"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id=3]
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 91, 33 )
-offset_left = 8.0
-offset_right = 8.0
-offset_top = 8.0
-offset_bottom = 8.0
+[sub_resource type="StyleBoxTexture" id="4"]
+texture = ExtResource("3")
+region_rect = Rect2(0, 0, 91, 33)
 
-[sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 91, 33 )
-offset_left = 8.0
-offset_right = 8.0
-offset_top = 8.0
-offset_bottom = 8.0
+[sub_resource type="StyleBoxTexture" id="2"]
+texture = ExtResource("2")
+region_rect = Rect2(0, 0, 91, 33)
 
-[sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 1 )
-region_rect = Rect2( 0, 0, 91, 33 )
-offset_left = 8.0
-offset_right = 8.0
-offset_top = 8.0
-offset_bottom = 8.0
+[sub_resource type="StyleBoxTexture" id="3"]
+texture = ExtResource("4")
+region_rect = Rect2(0, 0, 91, 33)
 
-[sub_resource type="ButtonGroup" id=7]
+[sub_resource type="StyleBoxTexture" id="1"]
+texture = ExtResource("1")
+region_rect = Rect2(0, 0, 91, 33)
 
 [node name="UI" type="CanvasLayer"]
-script = ExtResource( 9 )
+script = ExtResource("9")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
+custom_minimum_size = Vector2(600, 400)
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -66,32 +76,31 @@ offset_left = -300.0
 offset_top = -200.0
 offset_right = 300.0
 offset_bottom = 200.0
-custom_minimum_size = Vector2( 600, 400 )
-theme_override_styles/panel = SubResource( 5 )
+theme_override_styles/panel = SubResource("5")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_constants/margin_right = 60
 theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
 
 [node name="Label" type="Label" parent="Panel/MarginContainer"]
-offset_left = 60.0
-offset_top = 75.0
-offset_right = 540.0
-offset_bottom = 324.0
-theme_override_colors/font_color = Color( 0, 0, 0, 1 )
-theme_override_fonts/font = SubResource( 6 )
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("6")
 text = "My dear Clara,
 
 A close friend of mine is in dire need of help. I must leave immediately.
 
-Check out the backpack by the decrepit cart. Inside, you will find a key to upstairs. Make yourself at home.
+Check out the backpack by the decrepit cart. Inside, you will find a key to upstairs.
+Make yourself at home.
 
 Your uncle, Bert"
-autowrap = true
+label_settings = SubResource("LabelSettings_j04uc")
 
 [node name="Close" type="Button" parent="Panel"]
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -101,67 +110,50 @@ offset_top = -62.0
 offset_right = -32.0
 offset_bottom = -32.0
 mouse_default_cursor_shape = 2
-theme_override_styles/hover = SubResource( 2 )
-theme_override_styles/pressed = SubResource( 3 )
-theme_override_styles/disabled = SubResource( 4 )
-theme_override_styles/normal = SubResource( 1 )
+theme_override_styles/disabled = SubResource("4")
+theme_override_styles/hover = SubResource("2")
+theme_override_styles/pressed = SubResource("3")
+theme_override_styles/normal = SubResource("1")
 text = "Close"
-script = ExtResource( 7 )
+script = ExtResource("7")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Panel"]
-stream = ExtResource( 10 )
+stream = ExtResource("10")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
-theme = ExtResource( 8 )
+theme = ExtResource("8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-offset_right = 142.0
-offset_bottom = 60.0
+layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
-offset_right = 142.0
-offset_bottom = 28.0
+layout_mode = 2
 text = "Multiple Choice 1"
 
 [node name="CheckBox2" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
-offset_top = 32.0
-offset_right = 142.0
-offset_bottom = 60.0
+layout_mode = 2
 text = "Multiple Choice 2"
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
-offset_left = 146.0
-offset_right = 150.0
-offset_bottom = 60.0
+layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
-offset_left = 154.0
-offset_right = 281.0
-offset_bottom = 60.0
+layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="HBoxContainer/VBoxContainer2"]
-offset_right = 127.0
-offset_bottom = 28.0
-group = SubResource( 7 )
+layout_mode = 2
 text = "Single Choice 1"
 
 [node name="CheckBox2" type="CheckBox" parent="HBoxContainer/VBoxContainer2"]
-offset_top = 32.0
-offset_right = 127.0
-offset_bottom = 60.0
-group = SubResource( 7 )
+layout_mode = 2
 text = "Single Choice 2"
 
 [node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
-offset_left = 285.0
-offset_right = 289.0
-offset_bottom = 60.0
+layout_mode = 2
 
 [node name="VSlider" type="VSlider" parent="HBoxContainer"]
-offset_left = 293.0
-offset_right = 316.0
-offset_bottom = 60.0
+layout_mode = 2
 value = 75.0

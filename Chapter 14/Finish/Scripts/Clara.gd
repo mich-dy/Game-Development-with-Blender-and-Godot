@@ -14,14 +14,14 @@ var current_path: PackedVector3Array
 
 var is_moving: bool = false
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		turn_to(event)
 		
 	if event is InputEventMouseButton and event.button_index == 1:
 		find_path(event)
 
-func get_destination(event)->Vector3:
+func get_destination(event: InputEvent) -> Vector3:
 	var params = PhysicsRayQueryParameters3D.new()
 	params.from = camera.project_ray_origin(event.position)
 	params.to = params.from + camera.project_ray_normal(event.position) * 100
@@ -32,15 +32,17 @@ func get_destination(event)->Vector3:
 
 	return Vector3.ZERO
 	
-func turn_to(event):
+func turn_to(event: InputEvent) -> void:
 	if is_moving:
 		return
 	
-	var direction:Vector3 = get_destination(event) * Vector3(1,0,1) + Vector3(0, global_transform.origin.y, 0)
-
+	var direction: Vector3 = get_destination(event) * Vector3(1,0,1) + Vector3(0, global_transform.origin.y, 0)
 	look_at(direction, Vector3.UP)
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
+	move_to(current_path, delta)
+	
+func move_to(path: PackedVector3Array, delta: float) -> void:
 	if current_path.is_empty():
 		is_moving = false
 		$Clara/AnimationPlayer.play("Idle")
@@ -67,7 +69,7 @@ func _physics_process(delta):
 	global_transform.origin = global_transform.origin.move_toward(global_transform.origin + new_velocity, movement_delta)
 	look_at(current_path[current_path_index], Vector3.UP)
 
-func find_path(event):
+func find_path(event: InputEvent) -> void:
 	var params = PhysicsRayQueryParameters3D.new()
 	params.from = camera.project_ray_origin(event.position)
 	params.to = params.from + camera.project_ray_normal(event.position) * 100

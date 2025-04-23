@@ -1,18 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://c0dodaoiubotl"]
 
-[ext_resource path="res://Models/Scrolls/Parchment.glb" type="PackedScene" id=1]
-[ext_resource path="res://Models/Scrolls/Parchment.gd" type="Script" id=2]
+[ext_resource type="PackedScene" uid="uid://js0k58yf1llb" path="res://Models/Scrolls/Parchment.glb" id="1"]
+[ext_resource type="Script" uid="uid://bf5ym4lb3tvr" path="res://Models/Scrolls/Parchment.gd" id="2"]
 
-[sub_resource type="BoxShape3D" id=1]
-extents = Vector3( 0.15, 0.14, 0.06 )
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(0.3, 0.28, 0.12)
 
-[node name="Parchment" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="Parchment" instance=ExtResource("1")]
+script = ExtResource("2")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+[node name="Area3D" type="Area3D" parent="." index="1"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05 )
-shape = SubResource( 1 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+shape = SubResource("1")
 
-[connection signal="input_event" from="StaticBody3D" to="." method="_on_StaticBody_input_event"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="input_event" from="Area3D" to="." method="_on_StaticBody_input_event"]
